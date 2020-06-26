@@ -10,7 +10,7 @@ module.exports = async ctx => {
   }
 
   try {
-    let isNewUser = await newUser(id)
+    let isNewUser = await newUser(id,name,isBot)
     if (isNewUser) {
       return ctx.reply(`Ж ${name} to db!`)
     }else{
