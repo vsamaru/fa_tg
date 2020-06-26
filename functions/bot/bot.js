@@ -1,6 +1,7 @@
 const Telegraf = require('telegraf');
 const startAction = require('./actions/start')
 const set = require('./actions/set')
+const help = require('./actions/help')
 const bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN);
 
 bot.start(ctx => {
@@ -9,6 +10,10 @@ bot.start(ctx => {
 bot.settings(ctx => {
   return set(ctx)
 })
+bot.help(ctx => {
+  return help(ctx)
+})
+
 exports.handler = async event => {
   try {
     await bot.handleUpdate(JSON.parse(event.body));
