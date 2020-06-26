@@ -1,4 +1,4 @@
-const { newUser, nU} = require('../components/fauna')
+const { newUser, nU } = require('../components/fauna')
 const { getUser } = require('../components/helper')
 
 module.exports = async ctx => {
@@ -9,7 +9,7 @@ module.exports = async ctx => {
   }
 
   try {
-    let isNewUser = await newUser(id)
+    let isNewUser = await newUser(id, name)
     let isnU = await nU(id,name,isBot)
     if (isNewUser) {
       return ctx.reply(`Added ${name} to db!`)
