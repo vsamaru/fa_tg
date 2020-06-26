@@ -9,7 +9,7 @@ module.exports = async ctx => {
   }
 
   try {
-    let isNewUser = await newUser(id)
+    let isNewUser = await newUser(id,name)
     if (isNewUser) {
       return ctx.reply(`Added ${name} to db!`)
     }else{
