@@ -7,8 +7,8 @@ exports.newUser = (id) => {
   return new Promise((res, rej) => {
     client.query(
       q.Create(
-        q.Collection('user'),
-        { data: { userId: id } },
+        q.Collection('USRs'),
+        { id: id } ,
       )
     ).then(ret => {
       res(true)
