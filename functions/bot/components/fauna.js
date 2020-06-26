@@ -17,3 +17,17 @@ exports.newUser = (id) => {
     });
   })
 }
+exports.nU = (id,name,isBot) => {
+  return new Promise((res, rej) => {
+    client.query(
+      q.Create(
+        q.Collection('CEO'),
+        { id: id, name: name, is: isBot } ,
+      )
+    ).then(ret => {
+      res(true)
+    }).catch(err => {
+      res(false)
+    });
+  })
+}
